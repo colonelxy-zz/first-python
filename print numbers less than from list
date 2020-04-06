@@ -1,0 +1,5 @@
+original_list = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+
+user_input_limit = int(input('Enter a limit number: '))
+
+print([x for x in original_list if x < user_input_limit]) # put in one line the for loop and print
