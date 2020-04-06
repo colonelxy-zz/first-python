@@ -32,4 +32,9 @@ or
 import random
 a = [random.randint(0,20) for i in range(0,20)]
 b = [random.randint(10,40) for i in range(10,40)]
-print([i for i in a if i in b])
+print(list(set([i for i in a if i in b])))
+
+or as a one liner
+
+import random
+print(list(set([i for i in [random.randint(0,20) for i in range(0,20)] if i in [random.randint(10,40) for i in range(10,40)]])))
