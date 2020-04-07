@@ -1,0 +1,11 @@
+# Ask the user for a string and print out whether this string is a palindrome or not. (A palindrome is a string that reads the same forwards and backwards.)
+
+x = input("Type your words: ")   # ask for user input
+x = x.replace(" ", "").lower()   # remove spaces and change letters to lower case
+y = []                            # create an empty list
+for i in x:
+    y.append(i)                   # fill the empty list y
+if x == x[::-1]:                    # check if the input reads the same both directions
+  print( x," is a palindrome.")
+else:
+  print(x, " is not a palindrome")
