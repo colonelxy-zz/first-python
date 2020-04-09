@@ -1,0 +1,17 @@
+#Develop a function that uses a turtle to draw a circle.
+
+
+def drawcicle(t, r,sides):
+    for i in range(sides):
+        t.forward(2*3.1415*r/360) # get the circumference then divide it by 360 to get a movement distance along the circumference
+        t.right(360/sides) # turn right by a degree for a 360 degree angled cicrle
+
+import turtle
+wn = turtle.Screen()
+tess = turtle.Turtle()
+drawcicle(tess, 50, 360)
+tess.penup()  # lift pen to move the turtle
+tess.goto(0,50)  # move turtle to another location
+tess.pendown()   # pen down ready to draw
+drawcicle(tess,50,360)
+wn.exitonclick()
