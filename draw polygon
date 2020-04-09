@@ -9,6 +9,13 @@ import turtle
 wn = turtle.Screen()
 wn.bgcolor("pink")
 tess = turtle.Turtle()
+tess.fillcolor(('blue'))
+tess.begin_fill()
 drawpolygon(tess, 10, 20)
+tess.end_fill()
+tess.penup()
+tess.goto(0, 20)
+tess.pendown()
+tess.write("Hey moron")
 
 wn.exitonclick()
