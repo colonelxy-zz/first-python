@@ -1,0 +1,14 @@
+#Draw any polygon
+
+def drawpolygon(t, sides,length):
+    for i in range(sides):
+        t.forward(length)
+        t.right(360/sides)
+
+import turtle
+wn = turtle.Screen()
+wn.bgcolor("pink")
+tess = turtle.Turtle()
+drawpolygon(tess, 10, 20)
+
+wn.exitonclick()
