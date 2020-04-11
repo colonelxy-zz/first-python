@@ -1,0 +1,48 @@
+Suppose we want to entertain ourselves by watching a turtle wander around randomly inside the screen. 
+When we run the program we want the turtle and program to behave in the following way:
+
+The turtle begins in the center of the screen.
+
+Flip a coin. If it’s heads then turn to the left 90 degrees. If it’s tails then turn to the right 90 degrees.
+
+Take 50 steps forward.
+
+If the turtle has moved outside the screen then stop, otherwise go back to step 2 and repeat.
+
+Notice that we cannot predict how many times the turtle will need to flip the coin before it wanders out of the screen,
+so we can’t use a for loop in this case. In fact, although very unlikely, this program might never end, that is why we 
+call this indefinite iteration.
+
+import random
+import turtle
+
+
+def isInScreen(w, t):
+    rightbound = wn.window_width()/2
+    leftbound = -(wn.window_width()/2)
+    topbound = wn.window_height()/2
+    bottombound = -(wn.window_height()/2)
+
+    turtleX = t.xcor()
+    turtleY = t.ycor()
+
+    stillIn = True
+    if turtleX > rightbound or turtleX < leftbound:
+        stillIn =  False
+    if turtleY > topbound or turtleY < bottombound:
+        stillIn = False
+    return stillIn
+
+wn = turtle.Screen()
+tess = turtle.Turtle()
+tess.shape("turtle")
+tess.color("blue")
+
+while isInScreen(wn,tess) :
+    coin = random.randrange(0,2)
+    if coin == 0:
+        tess.right(90)
+    else:
+        tess.left(90)
+        tess.forward(50)
+wn.exitonclick()
