@@ -1,0 +1,69 @@
+Two randomly moving turtle with random starting positions. When they hit the boundaries they go to random locations and continue
+
+import random
+import turtle
+
+
+def isInScreen(w, t):
+    leftBound = - w.window_width() / 2
+    rightBound = w.window_width() / 2
+    topBound = w.window_height() / 2
+    bottomBound = -w.window_height() / 2
+
+    turtleX = t.xcor()
+    turtleY = t.ycor()
+
+    stillIn = True
+    if turtleX > rightBound or turtleX < leftBound:
+        stillIn = False
+    if turtleY > topBound or turtleY < bottomBound:
+        stillIn = False
+
+    return stillIn
+
+wn = turtle.Screen()
+t = turtle.Turtle()
+t.color('hotpink')
+s = turtle.Turtle()
+s.color("green")
+
+leftBound = - wn.window_width() // 2
+rightBound = wn.window_width() // 2
+topBound = wn.window_height() // 2
+bottomBound = -wn.window_height() // 2
+
+t.penup()
+t.goto(random.randrange(leftBound, rightBound),
+          random.randrange(bottomBound, topBound))
+t.setheading(random.randrange(0, 360))
+t.pendown()
+
+s.penup()
+s.goto(random.randrange(leftBound, rightBound),
+         random.randrange(bottomBound, topBound))
+s.setheading(random.randrange(0, 360))
+s.pendown()
+
+t.shape('turtle')
+while isInScreen(wn, t):
+    angle_t = random.randrange(0, 360 + 1)
+    length_t = random.randrange(0, 50)
+    angle_s = random.randrange(0, 360 + 1)
+    length_s = random.randrange(0, 50)
+    t.left(angle_t)
+    t.forward(length_t)
+    s.left(angle_s)
+    s.forward(length_s)
+
+    if not isInScreen(wn,t) :
+        t.goto(random.randrange(leftBound, rightBound),
+               random.randrange(bottomBound, topBound))
+        t.left(angle_t)
+        t.forward(length_t)
+    if not isInScreen(wn, s):
+        s.goto(random.randrange(leftBound, rightBound),
+               random.randrange(bottomBound, topBound))
+        s.left(angle_s)
+        s.forward(length_s)
+
+wn.exitonclick()
